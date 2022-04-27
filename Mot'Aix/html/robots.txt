@@ -1,0 +1,18 @@
+User-agent: *
+Disallow: /
+
+Sitemap: /
+
+Disallow: /index.php
+Allow: /pages/index.php
+Allow: /pages/motos.php
+Allow: /pages/contact.php
+Disallow: /templates/header.html
+
+Disallow: /admin/access.log
+Disallow: /admin/dashboard.php?page=clients.php
+Disallow: /admin/dashboard.php?page=stock.php
+Disallow: /admin/dashboard.php?page=salaires.php
+Disallow: /admin/dashboard.php?page=logs.php
+Disallow: /admin/dashboard.php?page=flag.php
+Allow: /images/
