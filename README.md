@@ -31,19 +31,3 @@ Pro : [Florian Allione](https://www.linkedin.com/in/florian-allione-40879817a/)
 |-----------------|---------------|------------------|----------------------|----------------------|
 | Mot'Aix Part 1  | Web  | 214 | 7/11 | [v4ss](https://www.linkedin.com/in/florian-allione-40879817a/)|
 | Mot'Aix Part 2  | Web  | 300 | 6/11 | [v4ss](https://www.linkedin.com/in/florian-allione-40879817a/)|
-
-<img src="https://i.imgur.com/NKEO7pO.png" alt="Connexion" width="50%">
-
-We can see that there is some field who are deactivated.
-
-So we go in the source code and delete the *disabled* option.
-
-<img src="https://i.imgur.com/VybWTBS.png">
-
-We can also see that there is a pattern on the fields admin and password who are *admin* and *123456789azertyuiopadminpassword*.
-When logging, we get the message:
-
-<img src="https://i.imgur.com/7VYS5h9.png">
-
-**FLAG: HACKYNOV{Plut0tF4c1lN0N?}**
-**AND GOOD JOB IT'S DONE !**
