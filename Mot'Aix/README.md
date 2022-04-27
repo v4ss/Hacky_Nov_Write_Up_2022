@@ -9,6 +9,7 @@
 ## Contexte
 
 Lorsque l’on lance notre challenge, nous arrivons sur le site d’un concessionnaire de moto « Mot’Aix ».
+
 ![Accueil](./img/Image1.png)
 
 Le but va être de trouver une faille LFI (Local File Inclusion) afin de récupérer notre premier flag, puis d’avoir un contrôle Shell à distance pour parcourir le serveur et récupérer notre deuxième flag (RCE).
@@ -38,15 +39,19 @@ On est maintenant connecté sur le Dashboard Administrateur du site de la conces
 ![Dashboard](./img/Image4.png)
 
 Le Flag est sur cette page :
+
 ![Flag1](./img/Image5.png)
 
 On va devoir utiliser un filtre via l’URL pour récupérer le code source de la page :
+
 ![Url1](./img/Image6.png)
 
 Le filtre est le suivant :
+
 ![Url2](./img/Image7.png)
 
 Il suffit désormais de décoder la chaîne en Base64 pour regarder le code source :
+
 ![Decode](./img/Image8.png)
 
 
@@ -66,6 +71,7 @@ L’objectif est de trouver un moyen d’accéder au serveur et d’y récupére
 Si l’on se souvient bien, dans notre « robots.txt » était inscrit un chemin pour accéder au fichier de log : **/admin/access.log**
 
 Il nous suffit de l’inclure dans notre page « dashboard.php » grâce au paramètre GET « page » et de tester d’exécuter du code php avec l’option « -A » de curl et d’y rajouter un paramètre « cmd » pour exécuter des commandes via l’url.
+
 ![Url3](./img/Image9.png)
 
 La commande curl : On affiche une chaine « HACKYNOV » juste pour se repérer dans le fichier de log et on affiche le résultat de notre commande juste après :
@@ -74,18 +80,23 @@ cur -A "<?php echo 'HACKYNOV              ';system(\$_GET['cmd']);?>" 10.15.2.2:
 ```
 
 On retrouve bien notre chaîne de caractère dans le fichier de log :
+
 ![Log1](./img/Image10.png)
 
-----
+
 > :warning: **Pour des besoins organisationnels lors de l'évènement, le fichier de log est 'refresh' toute les 15 secondes**
-----
+
 
 Test de la commande « whoami » :
+
 ![Log2](./img/Image11.png)
+
 ![Log3](./img/Image12.png)
 
 On voit qu’on arrive à exécuter nos commandes, il nous reste plus qu’à chercher et afficher notre flag :
+
 ![Log3](./img/Image13.png)
+
 ![Log4](./img/Image14.png)
 
 
